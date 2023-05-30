@@ -17,3 +17,46 @@ def chatbot():
             print("I'm sorry, I didn't understand that. Can you please rephrase?")
     
 chatbot()
+
+
+
+#Chatbot aus ChatGPT für Ideen bei den Textbausteinen
+import random
+
+# Liste von Begrüßungen und entsprechenden Antworten
+greetings = ["Hallo", "Guten Tag", "Hi", "Hey"]
+greeting_responses = ["Hallo! Wie kann ich Ihnen helfen?", "Guten Tag! Wie kann ich Ihnen behilflich sein?", "Hi! Wie kann ich Ihnen weiterhelfen?", "Hey! Wie kann ich Ihnen unterstützen?"]
+
+# Liste von Kundenanfragen und entsprechenden Antworten
+customer_queries = ["Wo finde ich Ihre Produkte?", "Können Sie mir bei der Bestellung helfen?", "Was sind Ihre Öffnungszeiten?", "Gibt es aktuelle Angebote?"]
+customer_responses = ["Unsere Produkte finden Sie auf unserer Webseite unter www.beispiel.de/shop", "Natürlich! Ich helfe Ihnen gerne bei der Bestellung. Was genau möchten Sie bestellen?", "Unsere Öffnungszeiten sind von Montag bis Freitag von 9:00 bis 18:00 Uhr.", "Ja, wir haben derzeit einige tolle Angebote. Besuchen Sie unsere Webseite, um mehr zu erfahren."]
+
+# Funktion zur Auswahl einer zufälligen Antwort aus einer Liste
+def get_random_response(responses):
+    return random.choice(responses)
+
+# Funktion zur Verarbeitung von Kundenanfragen
+def process_customer_query(query):
+    if query.lower() in greetings:
+        return get_random_response(greeting_responses)
+    elif query in customer_queries:
+        index = customer_queries.index(query)
+        return customer_responses[index]
+    else:
+        return "Es tut mir leid, ich konnte Ihre Anfrage nicht verstehen. Bitte stellen Sie eine andere Frage."
+
+# Hauptfunktion für die Interaktion mit dem Chatbot
+def main():
+    print("Willkommen beim Kundenservice-Chatbot!")
+    while True:
+        user_input = input("Kunde: ")
+        response = process_customer_query(user_input)
+        print("Chatbot: " + response)
+
+# Aufruf der Hauptfunktion
+if __name__ == "__main__":
+    main()
+
+
+
+
