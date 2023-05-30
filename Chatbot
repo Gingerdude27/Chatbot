@@ -1,7 +1,19 @@
 #v 0.1 = Erster Commit; Begrüßung und erste Abfrage
-#
+#v 0.2 = Abfrage Passwort
 #Begrüßung des Users
 print("Willkomen beim Chatbot der Gruppe 20")
+#
+#Abfrage ob der Benutzer berechtig ist
+while True:
+    print("Um ihre Identität festzustellen, geben Sie bitte Ihr 4 stelliges Passwort ein")
+    user_passwort = "" #Benutzerinput wird als leerer String initialisiert
+    if (user_passwort == 1234):
+    print("Vielen Dank")
+    break:
+    else:
+    print("Das war falsch")
+
+#
 print("Wie kann ich Ihnen weiterhelfen")
 print("Zum beenden schreiben sie bitte ENDE")
 print("")
