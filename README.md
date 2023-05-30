@@ -3,7 +3,8 @@ Chatbot vom Lernfeld 6
 
 
 TODO: 
-Passwort
-Service verkaufen
-Switchcase
-Texterkennung
+Passwort Richard
+Service verkaufen Richard
+antworten Jan
+Switchcase Leon
+Texterkennung Jonas
