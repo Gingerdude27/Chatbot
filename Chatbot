@@ -4,14 +4,18 @@
 print("Willkomen beim Chatbot der Gruppe 20")
 #
 #Abfrage ob der Benutzer berechtig ist
-while True:
-    print("Um ihre Identität festzustellen, geben Sie bitte Ihr 4 stelliges Passwort ein")
-    user_passwort = "" #Benutzerinput wird als leerer String initialisiert
+variablex = True
+user_passwort = 1234
+while variablex == True:
+    #print("Um ihre Identität festzustellen, geben Sie bitte Ihr 4 stelliges Passwort ein")
+    user_passwort = input("und?");
     if (user_passwort == 1234):
-    print("Vielen Dank")
-    break:
+        print("Vielen Dank")
+        variablex = False
+       # break;
     else:
-    print("Das war falsch")
+        print("Das war falsch")
+        variablex = True;
 
 #
 print("Wie kann ich Ihnen weiterhelfen")
