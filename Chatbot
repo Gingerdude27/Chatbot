@@ -1,1 +1,12 @@
-
+#v 0.1 = Erster Commit; Begrüßung und erste Abfrage
+#
+#Begrüßung des Users
+print("Willkomen beim Chatbot der Gruppe 20")
+print("Wie kann ich Ihnen weiterhelfen")
+print("Zum beenden schreiben sie bitte ENDE")
+print("")
+#
+#Benutzereingabe
+user_input = "" #Der Benutzerinput wird als leerer String initialisiert
+user_input = input("Ihre Frage/Antwort: ") #Hier wird der input generiert
+print(user_input) #Ausgabe der Benutzereingabe
