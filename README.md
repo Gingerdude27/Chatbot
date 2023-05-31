@@ -9,3 +9,24 @@ Liste implementieren mit kundenanfragen ?
 antworten Jan
 Switchcase Leon
 Texterkennung Jonas
+
+Aufgabenstellung:
+
+Must have (max. Note 3)
+
+Der Chatbot ist sinnvoll in den Service Level Prozess integriert (d.h. er passt zum erstellten EPK). 
+Der Chatbot sollte genaue und relevante Informationen liefern.
+Der Code des Chatbots wird in einem online Repository (Gitlab, Github, …) bereitgestellt und per Link an das Lehrer:innen-Team in KW 22 kommuniziert
+mind. 5 Commits (klar ersichtlich) von jedem Teammitglied
+
+Should have (max. Note 2)
+
+Der Code ist nachvollziehbar dokumentiert
+Gelingt es dem Chatbot nicht, eine Anfrage zu lösen, leitet er diese an eine:n Mitarbeiter:in weiter oder gibt alternative Kontaktmöglichkeiten an.
+Die Readme-Datei im Repository ist sinnvoll mit nachhaltigem Inhalt gepflegt
+Der Optimierungsprozess (des Chatbots) wird über Issues geregelt bzw. dokumentiert (mind. 3)
+
+Could have (Note 1)
+
+Supportanfragen, die der Chatbot nicht erfolgreich lösen konnte, werden in einer Datenbank protokolliert.
+Die Sicherstellung der Qualität der Integration des verwendeten Chatbots kann durch eine Teststrategie erläutert werden.
