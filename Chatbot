@@ -37,7 +37,7 @@ while authentification == False:
 print("Zum beenden schreiben sie bitte ENDE")
 print("Wie kann ich Ihnen weiterhelfen")
 print("")
-#
+
 #Benutzereingabe
 user_input = input("Ihre Frage: ") #Hier wird der input generiert
 print(user_input) #Ausgabe der Benutzereingabe

@@ -1,1 +1,10 @@
-
+{"intents": [
+    {"tag": "Begrüßungen",
+    "patterns": ["Moin", "Hey", "Hallo"],
+    "responces": ["Moin", "Wie kann ich Ihnen helfen?"]
+},
+    {"tag": "Ende",
+    "patterns": ["Tschüss", "Auf Wiedersehen"],
+    "responces": ["Vielen Dank und bis bald"]
+}
+]}

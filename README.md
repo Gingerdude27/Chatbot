@@ -1,10 +1,15 @@
 # Chatbot
 Chatbot vom Lernfeld 6
 
+In der Datei tags.json wird eine Liste mit den Tags und Antworten gebaut, die die AI zum lernen braucht.
+Ergänzungen werden gerne gesehen.
+Der bereich Tag gibt die KAtegorie an, hier bitte etwas sinnvoles wählen.
+Patterns gibt die benutzereingabe wieder, je mehr desto besser, hieraus lernt die AI.
+Responses gibt die Antworten wieder, sollte es hier mehrere geben, wird wilkürlich ausgewählt
 
 TODO: 
-Passwort Richard
-Service verkaufen Richard
+#Passwort Richard 
+#Service verkaufen Richard
 Liste implementieren mit kundenanfragen ?
 antworten Jan
 Switchcase Leon
