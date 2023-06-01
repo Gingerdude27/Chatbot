@@ -4,7 +4,7 @@ import json
 import pickle #serialization von Objekten ?
 import numpy as np #vereinfacht handling von Arrays ?
 import nltk #Spracherkennungstool
-from nltk.stem import WordNetLemmatizer #Bricht worte auf den Wortstamm herunter
+from nltk.stem import WordNetLemmatizer #Bricht Worte auf den Wortstamm herunter
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout
 from tensorflow.keras.optimizers import SGD
