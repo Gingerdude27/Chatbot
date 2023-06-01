@@ -1,22 +1,30 @@
 # Chatbot
 Chatbot vom Lernfeld 6
 
+#Wichtig
+Damit das Programm läuft müssen folgende Abhängigkeiten Installiert werden:
+-Numpy
+-nltk
+-tensorflow
+
+#Infos für Dev Crew
 In der Datei tags.json wird eine Liste mit den Tags und Antworten gebaut, die die AI zum lernen braucht.
 Ergänzungen werden gerne gesehen.
 Der bereich Tag gibt die KAtegorie an, hier bitte etwas sinnvoles wählen.
 Patterns gibt die benutzereingabe wieder, je mehr desto besser, hieraus lernt die AI.
 Responses gibt die Antworten wieder, sollte es hier mehrere geben, wird wilkürlich ausgewählt
 
-TODO: 
-#Passwort Richard 
-#Service verkaufen Richard
+#TODO: 
 Liste implementieren mit kundenanfragen ?
 antworten Jan
 Switchcase Leon
 Texterkennung Jonas
 
-Aufgabenstellung:
+#Erledigt:
+Passwort Richard 
+Service verkaufen Richard
 
+#Aufgabenstellung:
 Must have (max. Note 3)
 
 Der Chatbot ist sinnvoll in den Service Level Prozess integriert (d.h. er passt zum erstellten EPK). 
