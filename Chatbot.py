@@ -4,9 +4,13 @@
 #v 0.4 = Beenden des Bots und weiterleiten an Support
 
 #Begrüßung des Users
-print("Willkomen beim Chatbot der Gruppe 20")
+print("Willkommen beim Chatbot der Gruppe 20")
 
-#Abfrage ob der Benutzer berechtig ist
+#Kundenfragen + Antworten
+Keywords = ["Wo","Produkte","Öffnungszeiten","Wetter"]
+Antworten_Keywords = ["Unsere Produkte finden Sie unter Beispiel.de.","Unsere Öffnungszeiten sind täglich von 9 bis 18 Uhr.","Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."]
+
+#Abfrage ob der Benutzer berechtigt ist
 authentification = False
 while authentification == False:
     print("Um ihre Identität festzustellen, geben Sie bitte Ihr 4 stelliges Passwort ein")
@@ -15,7 +19,7 @@ while authentification == False:
     if (user_passwort == "1234"):
         print("Vielen Dank")
         authentification = True
-#Hier wird abgefragt ob der Benutzer Kunde ist und nur nen Passwort braucht oder ob wir einen Neukunden gewinnen können
+#Hier wird abgefragt ob der Benutzer Kunde ist und nur ein Passwort braucht oder ob wir einen Neukunden gewinnen können
     elif (user_passwort == "0000"):
         print("Sie werden zu unseren Angeboten weitergeleitet")
         print("Wir bieten verschidene Service Optionen an")
@@ -26,12 +30,12 @@ while authentification == False:
             kundennummer = input()
             print("Vielen Dank ein Kundenbetreuer meldet sich in Kürze bei Ihnen") #In Liste eintragen
             print("Vielen Dank und bis bald")
-            exit #soll programm beenden
+            exit #soll Programm beenden
         else:
             print("Bitte teilen sie uns Ihre E-mail Adresse mit und wir melden uns bei Ihnen")
             kundenmail = input() #In Liste eintragen
             print("Vielen Dank und bis bald")
-            exit #soll programm beenden
+            exit #soll Programm beenden
     else:
         print("Das war falsch")
 
