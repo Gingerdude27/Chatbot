@@ -2,6 +2,7 @@
 #v 0.2 = Abfrage Passwort
 #v 0.3 = Anfordern eines Kundenpasswortes als Service
 #v 0.4 = Beenden des Bots und weiterleiten an Support
+#v 0.5 = Beginnen mit matchcase
 
 #Begrüßung des Users
 print("Willkommen beim Chatbot der Gruppe 20")
@@ -47,8 +48,14 @@ trialcount = 0
 while trialcount < 3: #Hier würd überprüft ob der Benutzer schon mehr als 3 Anläufe braucht
     print("Wie kann ich Ihnen weiterhelfen")
     frage = input()
+    schlüsselwort = frage #Hier aus frage schlüsselworte beziehen
     if frage != "ENDE":
-        print("Hallo") #Hier Frage Antwort
+        match schlüsselwort: #Hier Frage Antwort
+            case "öffnungszeiten":
+                print("Antwort")
+            case other:
+                print("Das habe ich leider nicht verstanden")
+        trialcount + 1
     else:
         trialcount = 2000
 else:
