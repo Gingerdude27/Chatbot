@@ -3,7 +3,11 @@
 #v 0.3 = Anfordern eines Kundenpasswortes
 
 #Begrüßung des Users
-print("Willkomen beim Chatbot der Gruppe 20")
+print("Willkommen beim Chatbot der Gruppe 20")
+
+#Kundenfragen + Antworten
+Keywords = ["Wo","Produkte","Öffnungszeiten","Wetter"]
+Antworten_Keywords = ["Unsere Produkte finden Sie unter Beispiel.de.","Unsere Öffnungszeiten sind täglich von 9 bis 18 Uhr.","Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."
 
 #Abfrage ob der Benutzer berechtig ist
 authentification = False
