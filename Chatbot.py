@@ -1,10 +1,6 @@
 #Imports
-<<<<<<< Updated upstream
 from datetime import datetime
 
-=======
-#Todo
->>>>>>> Stashed changes
 #Eigentlich import from util.py
 def ask_question(question):
     print(question)
@@ -22,8 +18,9 @@ def ask_yes_no(question):
             print("Invalid response. Please answer with 'y', 'yes', 'ja', 'n', 'no' or 'nein'.")
 
 def kontakt():
-    print("HHIER DIE KONTAKTMÖGLICHKEITEN ANGEBEN")
-
+    print("HIER DIE KONTAKTMÖGLICHKEITEN ANGEBEN")
+    #todo
+    
 def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
     #Jahr und Monat aus Rechnungsnummer herausfinden
     rechnungs_jahr = int(rechnungsnummer[0:2]) + 2000
@@ -38,8 +35,7 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
 
     #Überprüfung
     return rechnungs_datum > vor_zwei_jahren
-       
-
+  
 def text_in_schlüsselworte(benutzereingabe):
     bausteine_benutzereingabe = benutzereingabe.split(" ", ",", "!", "?")
     
@@ -52,6 +48,10 @@ def chatbot_frage():
     #Todo
     
     print("todo")
+    
+def datenbank_speichern(kategorie, text):
+    print("todo")
+    #todo
     
 #Variable
 
