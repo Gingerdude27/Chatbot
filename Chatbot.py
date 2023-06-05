@@ -1,4 +1,6 @@
 #Imports
+from datetime import datetime
+
 #Eigentlich import from util.py
 def ask_question(question):
     print(question)
@@ -18,12 +20,21 @@ def ask_yes_no(question):
 def kontakt():
     print("HHIER DIE KONTAKTMÖGLICHKEITEN ANGEBEN")
 
-def pruefe_gewaehrleisttungsanspruch(rechnungsnummer):
-    #Todo 
-    #Abgleich ob der Anspruch schon verjährt ist
-    #funktion bekommt rechnungsnummer und gibt true/false aus
-    #funktion informiert anwender ob er noch anspruch hat und wenn ja wie lange 
-    print("unfug") 
+def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
+    #Jahr und Monat aus Rechnungsnummer herausfinden
+    rechnungs_jahr = int(rechnungsnummer[0:2]) + 2000
+    rechnungs_monat = int(rechnungsnummer[2:4]) 
+
+    #Berechne das Datum
+    heute = datetime.now()
+    vor_zwei_jahren = heute.replace(year = heute.year - 2)
+
+    #Erstellt ein Datum-Objekt mit Jahr und Monat aus der Rechnungsnummer
+    rechnungs_datum = vor_zwei_jahren.replace(year = rechnungs_jahr, month = rechnungs_monat)
+
+    #Überprüfung
+    return rechnungs_datum > vor_zwei_jahren
+       
 
 def chatbot_frage():
     #Todo
@@ -31,7 +42,7 @@ def chatbot_frage():
     
 #Variable
 
-rechnungsliste = ["11221234", "01183579"]
+rechnungsliste = ["22056348","23018349"]
 
 #Begrüßung
 print("Willkomen beim Chatbot")
@@ -49,7 +60,7 @@ else:
         kontakt()
         
 if rechnungsnummer_vorhanden:
-    gewaehleistungsanspruch = pruefe_gewaehrleisttungsanspruch()
+    gewaehleistungsanspruch = pruefe_gewaehrleistungsanspruch()
 
 if gewaehleistungsanspruch:
     trial = 0
