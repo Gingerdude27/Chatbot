@@ -36,17 +36,17 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
     #Überprüfung
     return rechnungs_datum > vor_zwei_jahren
   
-def text_in_bestandteile(benutzereingabe,fuellwoerter):
-    bausteine_benutzereingabe = benutzereingabe.split(" ", ",", "!", "?")
+def text_in_bestandteile(text,zu_loeschende_woerter):
+    bausteine_benutzereingabe = text.split(" ", ",", "!", "?")
     for wort in bausteine_benutzereingabe:
-        if wort in fuellwoerter:
+        if wort in zu_loeschende_woerter:
             bausteine_benutzereingabe.remove(wort)
     return bausteine_benutzereingabe        
     #überarbeiten-todo
     
 def chatbot_frage():
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
-    
+    text_in_bestandteile(benutzereingabe, fuellwoerter)
     #Todo
     
     print("todo")
