@@ -16,19 +16,19 @@ authentification = False
 while authentification == False:
     print("Um ihre Identität festzustellen, geben Sie bitte Ihr 4 stelliges Passwort ein")
     print("Solten Sie keins haben geben Sie bitte 0000 ein")
-    user_passwort = input();
-    if (user_passwort == "1234"):
+    kundennummer = input();
+    if (kundennummer == "1234"):
         print("Vielen Dank")
         authentification = True
 #Hier wird abgefragt ob der Benutzer Kunde ist und nur ein Passwort braucht oder ob wir einen Neukunden gewinnen können
-    elif (user_passwort == "0000"):
+    elif (kundennummer == "0000"):
         print("Sie werden zu unseren Angeboten weitergeleitet")
         print("Wir bieten verschidene Service Optionen an")
         print("Sind Sie schon Kunde bei uns?")
         kundenstatus = input("y/n");
         if (kundenstatus ==  "y"):
             print("Bitte geben sie hier Ihre Kundennummer ein")
-            kundennummer = input()
+            rechnungsnummer = input()
             print("Vielen Dank ein Kundenbetreuer meldet sich in Kürze bei Ihnen") #In Liste eintragen
             print("Vielen Dank und bis bald")
             exit #soll Programm beenden
