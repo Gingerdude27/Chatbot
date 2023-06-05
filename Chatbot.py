@@ -4,20 +4,18 @@
 #v 0.4 = Beenden des Bots und weiterleiten an Support
 #v 0.5 = Beginnen mit matchcase
 
+listkundennummer = [12345 , ]
 #Begrüßung des Users
 print("Willkommen beim Chatbot der Gruppe 20")
-
-#Kundenfragen + Antworten
-Keywords = ["Wo","Produkte","Öffnungszeiten","Wetter"]
-Antworten_Keywords = ["Unsere Produkte finden Sie unter Beispiel.de.","Unsere Öffnungszeiten sind täglich von 9 bis 18 Uhr.","Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."]
 
 #Abfrage ob der Benutzer berechtigt ist
 authentification = False
 while authentification == False:
-    print("Um ihre Identität festzustellen, geben Sie bitte Ihr 4 stelliges Passwort ein")
-    print("Solten Sie keins haben geben Sie bitte 0000 ein")
+    print("Um Ihre Identität festzustellen, geben Sie bitte Ihre 5 stellige Kundennummer oder")
+    print("Ihre 8 stellige Rechnungsnummer ein")
+    print("Sollten Sie beides nicht haben, geben Sie bitte 0000 ein")
     kundennummer = input();
-    if (kundennummer == "1234"):
+    if (kundennummer in listkundennummer):
         print("Vielen Dank")
         authentification = True
 #Hier wird abgefragt ob der Benutzer Kunde ist und nur ein Passwort braucht oder ob wir einen Neukunden gewinnen können
@@ -70,3 +68,9 @@ else:
             trialcount - 1
     else:
         print("Vielen Dank und bis bald")
+
+
+
+#Kundenfragen + Antworten
+Keywords = ["Wo","Produkte","Öffnungszeiten","Wetter"]
+Antworten_Keywords = ["Unsere Produkte finden Sie unter Beispiel.de.","Unsere Öffnungszeiten sind täglich von 9 bis 18 Uhr.","Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."]
