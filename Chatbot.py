@@ -1,5 +1,6 @@
 #Imports
 from datetime import datetime
+import random
 
 #Eigentlich import from util.py
 def ask_question(question):
@@ -46,7 +47,8 @@ def text_in_bestandteile(text,zu_loeschende_woerter):
     
 def chatbot_frage():
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
-    text_in_bestandteile(benutzereingabe, fuellwoerter)
+    bausteine_benutzereingabe = text_in_bestandteile(benutzereingabe, fuellwoerter)
+    print(bausteine_benutzereingabe) #todo nur zu demo zwecken
     #Todo
     
     print("todo")
@@ -58,11 +60,19 @@ def datenbank_speichern(kategorie, text):
 #Variable
 
 rechnungsliste = ["22056348","23018349"]
+
 fuellwoerter = [",", "!", "?", "also", "eigentlich", "wirklich", "irgendwie", "halt", "eben", "sozusagen", "quasi", "wie gesagt", "na", "genau", "ja",
                 "ganz", "sicherlich", "offensichtlich", "nun", "doch", "aber", "dennoch", "trotzdem", "allerdings", "jedenfalls", "sowieso",
                 "vielleicht", "eventuell", "möglicherweise", "wohl", "vermutlich", "wohl", "eher", "kaum", "weniger", "einigermaßen", "ziemlich",
                 "extrem", "absolut", "total", "völlig", "wahrscheinlich", "in",  "der", "Regel", "normalerweise", "meistens","üblicherweise", "häufig",
                 "selten", "manchmal", "gelegentlich", "hin", "und", "wieder", "oft", "fast", "immer", "im", "grunde", "grundsätzlich", "prinzip"]
+
+kategorieliste = {"Begrueßung", ["moin", "hallo", "servus"]}
+#die kategorieliste ist wie folgt aufgebaut: Kategorie: [Schlagwort(e)]
+
+antwortliste = {"Begrueßung", "Moin, wie kann ich helfen?"}
+#die antwortliste ist wie folgt aufgebaut: Kategorie: [Antwort(en)]
+#ACHTUNG es müssen alle Kategorien in aus der kategorieliste hier einen gegenpart haben
 
 #Begrüßung
 print("Willkomen beim Chatbot")
