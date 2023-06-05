@@ -18,12 +18,19 @@ def ask_yes_no(question):
 def kontakt():
     print("HHIER DIE KONTAKTMÖGLICHKEITEN ANGEBEN")
 
+def gewaehrlanspr(rechnungsnummer):
+    #Todo Abgleich ob der Anspruch schon verjährt ist
+    #funktion bekommt rechnungsnummer und gibt true/false aus
+    #funktion informiert anwender ob er noch anspruch hat und wenn ja wie lange 
+    print("unfug") 
+
 #Variable
 
-rechnungsliste = []
+rechnungsliste = ["11221234", "01183579"]
+
 #Begrüßung
 print("Willkomen beim Chatbot")
-print("Um Ihre Identität zu bestimmen, geben Sie bitte Ihre Rechnungsnummer ein")
+print("Um Ihre Identität zu bestimmen, geben Sie bitte Ihre 8 stellige Rechnungsnummer ein")
 rechnungsnummer = ask_question("Sollten Sie keine haben geben Sie bitte 1234 ein")
 rechnn = False
 if rechnungsnummer == "1234":
@@ -37,4 +44,7 @@ else:
         kontakt()
         
 if rechnn:
+    anspruch = gewaehrlanspr()
+
+if anspruch:
     
