@@ -36,10 +36,13 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
     #Überprüfung
     return rechnungs_datum > vor_zwei_jahren
   
-def text_in_schlüsselworte(benutzereingabe):
+def text_in_bestandteile(benutzereingabe,fuellwoerter):
     bausteine_benutzereingabe = benutzereingabe.split(" ", ",", "!", "?")
-    bausteine_benutzereingabe.remove(",", "!", "?")
-    #Todo
+    for wort in bausteine_benutzereingabe:
+        if wort in fuellwoerter:
+            bausteine_benutzereingabe.remove(wort)
+    return bausteine_benutzereingabe        
+    #überarbeiten-todo
     
 def chatbot_frage():
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
@@ -55,6 +58,11 @@ def datenbank_speichern(kategorie, text):
 #Variable
 
 rechnungsliste = ["22056348","23018349"]
+fuellwoerter = [",", "!", "?", "also", "eigentlich", "wirklich", "irgendwie", "halt", "eben", "sozusagen", "quasi", "wie gesagt", "na", "genau", "ja",
+                "ganz", "sicherlich", "offensichtlich", "nun", "doch", "aber", "dennoch", "trotzdem", "allerdings", "jedenfalls", "sowieso",
+                "vielleicht", "eventuell", "möglicherweise", "wohl", "vermutlich", "wohl", "eher", "kaum", "weniger", "einigermaßen", "ziemlich",
+                "extrem", "absolut", "total", "völlig", "wahrscheinlich", "in",  "der", "Regel", "normalerweise", "meistens","üblicherweise", "häufig",
+                "selten", "manchmal", "gelegentlich", "hin", "und", "wieder", "oft", "fast", "immer", "im", "grunde", "grundsätzlich", "prinzip"]
 
 #Begrüßung
 print("Willkomen beim Chatbot")
