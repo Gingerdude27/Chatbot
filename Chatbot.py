@@ -38,8 +38,7 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
   
 def text_in_schlüsselworte(benutzereingabe):
     bausteine_benutzereingabe = benutzereingabe.split(" ", ",", "!", "?")
-    
-    print("todo")
+    bausteine_benutzereingabe.remove(",", "!", "?")
     #Todo
     
 def chatbot_frage():
