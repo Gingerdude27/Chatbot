@@ -38,12 +38,12 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
     return rechnungs_datum > vor_zwei_jahren
   
 def text_keyword(text, keywordliste):
-    schlagwoerter =()
-    #text = int(text) #todo ist das richtig
-    textfragmente = text.split(" ", ",") #Todo ergänzen FEhler bei mehr (TypeError: split() takes at most 2 arguments (5 given))
+    schlagwoerter = []
+    textfragmente = text.replace(",", "").split(" ") #Todo ergänzen FEhler bei mehr (TypeError: split() takes at most 2 arguments (5 given))
     for fragment in keywordliste:
-        if fragment in textfragmente:
-           schlagwoerter.append(fragment)
+        for keyword in fragment:
+            if keyword in textfragmente:
+                schlagwoerter.append(keyword)
     return schlagwoerter        
     #überprüfen-todo
     
@@ -64,7 +64,8 @@ def datenbank_speichern(kategorie, text):
 
 rechnungsliste = ["22056348","23018349"]
 
-keywordliste = {"moin": "Moin, wie kann ich helfen?"}
+keywordliste = {("moin", "hallo"): "Moin, wie kann ich helfen?",
+                ("router","monitor"): "Neustart"}
 
 #Begrüßung
 print("Willkommen beim Chatbot")
