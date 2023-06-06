@@ -37,10 +37,10 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
     #Überprüfung
     return rechnungs_datum > vor_zwei_jahren
   
-def text_in_bestandteile(text,zu_loeschende_woerter):
-    bausteine_benutzereingabe = text.split(" ", ",", "!", "?")
-    for wort in bausteine_benutzereingabe:
-        if wort in zu_loeschende_woerter:
+def text_keyword(text,keyword):
+    textfragmente = text.split(" ", ",", "!", "?")
+    for fragment in textfragmente:
+        if fragment in keyword:
             bausteine_benutzereingabe.remove(wort)
     return bausteine_benutzereingabe        
     #überarbeiten-todo
@@ -49,6 +49,10 @@ def chatbot_frage():
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
     bausteine_benutzereingabe = text_in_bestandteile(benutzereingabe, fuellwoerter)
     print(bausteine_benutzereingabe) #todo nur zu demo zwecken
+    for word in bausteine_benutzereingabe:
+        if word in kategorieliste:
+    
+    
     #Todo
     
     print("todo")
@@ -61,11 +65,7 @@ def datenbank_speichern(kategorie, text):
 
 rechnungsliste = ["22056348","23018349"]
 
-fuellwoerter = [",", "!", "?", "also", "eigentlich", "wirklich", "irgendwie", "halt", "eben", "sozusagen", "quasi", "wie gesagt", "na", "genau", "ja",
-                "ganz", "sicherlich", "offensichtlich", "nun", "doch", "aber", "dennoch", "trotzdem", "allerdings", "jedenfalls", "sowieso",
-                "vielleicht", "eventuell", "möglicherweise", "wohl", "vermutlich", "wohl", "eher", "kaum", "weniger", "einigermaßen", "ziemlich",
-                "extrem", "absolut", "total", "völlig", "wahrscheinlich", "in",  "der", "Regel", "normalerweise", "meistens","üblicherweise", "häufig",
-                "selten", "manchmal", "gelegentlich", "hin", "und", "wieder", "oft", "fast", "immer", "im", "grunde", "grundsätzlich", "prinzip"]
+keyword = []
 
 kategorieliste = {"Begrueßung": ["moin", "hallo", "servus"] }
 #die kategorieliste ist wie folgt aufgebaut: Kategorie: [Schlagwort(e)]
@@ -90,7 +90,7 @@ else:
         kontakt()
         
 if rechnungsnummer_vorhanden:
-    gewaehrleistungsanspruch = pruefe_gewaehrleistungsanspruch()
+    gewaehrleistungsanspruch = pruefe_gewaehrleistungsanspruch(rechnungsnummer)
 
 if gewaehrleistungsanspruch:
     trial = 0
