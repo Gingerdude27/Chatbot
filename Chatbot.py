@@ -37,26 +37,24 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
     #Überprüfung
     return rechnungs_datum > vor_zwei_jahren
   
-def text_keyword(text,keyword):
+def text_keyword(text,keywordliste):
+    schlagwoerter =[]
     textfragmente = text.split(" ", ",", "!", "?")
-    for fragment in textfragmente:
-        if fragment in keyword:
-            bausteine_benutzereingabe.remove(wort)
-    return bausteine_benutzereingabe        
-    #überarbeiten-todo
+    for fragment in keywordliste:
+        if fragment in textfragmente:
+           schlagwoerter.append(fragment)
+    return schlagwoerter        
+    #überprüfen-todo
     
 def chatbot_frage():
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
-    bausteine_benutzereingabe = text_in_bestandteile(benutzereingabe, fuellwoerter)
-    print(bausteine_benutzereingabe) #todo nur zu demo zwecken
-    for word in bausteine_benutzereingabe:
-        if word in kategorieliste:
-    
-    
+    schlagwoerter = text_keyword(benutzereingabe, keywordliste)
+    print("das sind die gefundenen Schlagwörter", schlagwoerter) #todo nur zu demo zwecken
+    for word in schlagwoerter:
+        if word in keywordliste.keys():
+            print(keywordliste[word]) 
     #Todo
-    
-    print("todo")
-    
+        
 def datenbank_speichern(kategorie, text):
     print("todo")
     #todo
@@ -65,14 +63,7 @@ def datenbank_speichern(kategorie, text):
 
 rechnungsliste = ["22056348","23018349"]
 
-keyword = []
-
-kategorieliste = {"Begrueßung": ["moin", "hallo", "servus"] }
-#die kategorieliste ist wie folgt aufgebaut: Kategorie: [Schlagwort(e)]
-
-antwortliste = {"Begrueßung", "Moin, wie kann ich helfen?"}
-#die antwortliste ist wie folgt aufgebaut: Kategorie: [Antwort(en)]
-#ACHTUNG es müssen alle Kategorien in aus der kategorieliste hier einen gegenpart haben
+keywordliste = ["moin": "Moin, wie kann ich helfen?"]
 
 #Begrüßung
 print("Willkommen beim Chatbot")
