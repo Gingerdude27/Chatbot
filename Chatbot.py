@@ -67,7 +67,7 @@ fuellwoerter = [",", "!", "?", "also", "eigentlich", "wirklich", "irgendwie", "h
                 "extrem", "absolut", "total", "völlig", "wahrscheinlich", "in",  "der", "Regel", "normalerweise", "meistens","üblicherweise", "häufig",
                 "selten", "manchmal", "gelegentlich", "hin", "und", "wieder", "oft", "fast", "immer", "im", "grunde", "grundsätzlich", "prinzip"]
 
-kategorieliste = {"Begrueßung", ["moin", "hallo", "servus"]}
+kategorieliste = {"Begrueßung": ["moin", "hallo", "servus"] }
 #die kategorieliste ist wie folgt aufgebaut: Kategorie: [Schlagwort(e)]
 
 antwortliste = {"Begrueßung", "Moin, wie kann ich helfen?"}
