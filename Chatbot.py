@@ -73,9 +73,9 @@ else:
         kontakt()
         
 if rechnungsnummer_vorhanden:
-    gewaehleistungsanspruch = pruefe_gewaehrleistungsanspruch()
+    gewaehrleistungsanspruch = pruefe_gewaehrleistungsanspruch()
 
-if gewaehleistungsanspruch:
+if gewaehrleistungsanspruch:
     trial = 0
     while trial < 4:
         chatbot_frage()
