@@ -58,9 +58,9 @@ def datenbank_speichern(kategorie, text):
 rechnungsliste = ["22056348","23018349"]
 
 #Begrüßung
-print("Willkomen beim Chatbot")
+print("Willkommen beim Chatbot")
 print("Um Ihre Identität zu bestimmen, geben Sie bitte Ihre 8 stellige Rechnungsnummer ein")
-rechnungsnummer = ask_question("Sollten Sie keine haben geben Sie bitte 1234 ein")
+rechnungsnummer = ask_question("Sollten Sie keine haben, geben Sie bitte 1234 ein")
 rechnn = False
 if rechnungsnummer == "1234":
     kontakt()
