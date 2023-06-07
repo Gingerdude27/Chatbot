@@ -1,13 +1,15 @@
 #Imports
 from datetime import datetime
-
 #Eigentlich import from util.py
-def ask_question(question): #Funktion erstellt eine Frage (Variable) und gibt einen String mit der Antwort zurück
+
+#Funktion erstellt eine Frage (Variable) und gibt einen String mit der Antwort zurück
+def ask_question(question): 
     print(question)
     response = input().lower()
     return response
 
-def ask_yes_no(question): #Funktion erstellt eine Frage und gibt ein Boolean zurück
+#Funktion erstellt eine Frage und gibt ein Boolean zurück
+def ask_yes_no(question): 
     while True:
         response = input(question).lower()
         if response in ['y', 'yes', 'ja']:
@@ -20,8 +22,9 @@ def ask_yes_no(question): #Funktion erstellt eine Frage und gibt ein Boolean zur
 def kontakt(): #todo logging
     print("HIER DIE KONTAKTMÖGLICHKEITEN ANGEBEN")
     #todo
-    
-def pruefe_gewaehrleistungsanspruch(rechnungsnummer): #Funktion bekommt eine Variable und überprüft ob noch ein Anspruch besteht, gibt einen Boolean zurück
+
+#Funktion bekommt eine Variable und überprüft ob noch ein Anspruch besteht; gibt einen Boolean zurück
+def pruefe_gewaehrleistungsanspruch(rechnungsnummer): 
     #Jahr und Monat aus Rechnungsnummer herausfinden
     rechnungs_jahr = int(rechnungsnummer[0:2]) + 2000
     rechnungs_monat = int(rechnungsnummer[2:4]) 
@@ -35,8 +38,9 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer): #Funktion bekommt eine Var
 
     #Überprüfung
     return rechnungs_datum > vor_zwei_jahren
-  
-def text_keyword(text, keywordliste): #Funktiom bekommt einen String und zerlegt diesen in einzelne Worte, diese werden dann mit der Keywortliste abgeglichen und wenn sie vorhanden sind als liste ausgegeben
+
+ #Funktion bekommt einen String und zerlegt diesen in einzelne Worte, diese werden dann mit der Keywortliste abgeglichen und wenn sie vorhanden sind als Liste ausgegeben 
+def text_keyword(text, keywordliste): 
     schlagwoerter = []
     textfragmente = text.replace(",", "").split(" ") 
     for fragment in keywordliste:
@@ -45,8 +49,9 @@ def text_keyword(text, keywordliste): #Funktiom bekommt einen String und zerlegt
                 if keyword not in schlagwoerter:
                     schlagwoerter.append(keyword)
     return schlagwoerter        
-        
-def chatbot_frage(): #todo logging #Funktion Erstellt eine Frage, fasst den Text in Schlagworte zusammen und gibt eine Antwort, welche er aus einer Liste auswählt
+
+#Funktion erstellt eine Frage, fasst den Text in Schlagworte zusammen und gibt eine Antwort, welche er aus einer Liste auswählt
+def chatbot_frage(): #todo logging 
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
     schlagwoerter = text_keyword(benutzereingabe, keywordliste)
     print("das sind die gefundenen Schlagwörter", schlagwoerter) #todo nur zu demo zwecken
@@ -57,12 +62,13 @@ def chatbot_frage(): #todo logging #Funktion Erstellt eine Frage, fasst den Text
                     print(keywordliste[tupil])
     else: #todo  logging
         print("Leider habe ich das nicht verstanden, könnten Sie das bitte wiederholen")        
-        
+       
 def datenbank_speichern(kategorie, text): #todo 
     print("todo")
     #todo
-    
-#Variable
+
+
+#Variablen
 
 rechnn = False
 
