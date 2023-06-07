@@ -45,7 +45,7 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
  #Funktion bekommt einen String und zerlegt diesen in einzelne Worte, diese werden dann mit der Keywortliste abgeglichen und wenn sie vorhanden sind als Liste ausgegeben 
 def text_keyword(text, keywordliste): 
     schlagwoerter = []
-    textfragmente = text.replace(",", "").replace("?", ".").replace("!", "-").split(" ") if " " in text else [text]
+    textfragmente = text.replace(",", "").replace("?", ".").replace("!", "-").split(" ")
     for fragment in keywordliste:
         for keyword in fragment:
             if keyword in textfragmente:
@@ -84,7 +84,7 @@ def initialize_database():
                                UserInput TEXT,
                                Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP)''')
 
-        print("[Debug] Database initialized")
+        print("[Debug] Datenbank initialisiert")
         conn.commit()
     except Exception as e:
         print("[Debug] An error occurred while initializing the database:", str(e))
