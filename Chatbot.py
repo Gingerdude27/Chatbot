@@ -124,8 +124,7 @@ if gewaehrleistungsanspruch:
         chatbot_frage()
         trial += 1
     else:
-        print("Anscheinend konnte ich Ihnen nach 3 Versuchen nicht helfen,")
-        print("bitte wenden Sie sich an den Kundensupport")
+        print("Es tut mir leid dass ich Ihnen mein auch weiterhin nicht helfen kann.")
         kontakt()
 elif rechnungsnummer_vorhanden:
     print("Leider besteht kein Gewährleistungsanspruch")
