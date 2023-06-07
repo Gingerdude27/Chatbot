@@ -51,11 +51,13 @@ def chatbot_frage():
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
     schlagwoerter = text_keyword(benutzereingabe, keywordliste)
     print("das sind die gefundenen Schlagwörter", schlagwoerter) #todo nur zu demo zwecken
-    for tupil in keywordliste:
-        for keyword in tupil:
-            if keyword in schlagwoerter:
-                print(keywordliste[tupil])
-      
+    if len(schlagwoerter) != 0:
+        for tupil in keywordliste:
+            for keyword in tupil:
+                if keyword in schlagwoerter:
+                    print(keywordliste[tupil])
+    else: #todo  logging
+        print("Leider konnte ich das  ")        
     
     #for word in schlagwoerter:
      #   print(word)
@@ -69,8 +71,11 @@ def datenbank_speichern(kategorie, text):
     
 #Variable
 
+rechnungsnummer_vorhanden = False
+
 rechnungsliste = ["22056348","23018349"]
 
+<<<<<<< HEAD
 keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen helfen?",
                 ("wetter",): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab.",
                 ("öffnungszeiten", "oeffnungszeiten"): "Unsere Öffnungszeiten sind 24 Stunden und 7 Tage die Woche. Wir sind ein OnlineShop. Bitte beachten Sie, dass unser Lager nicht am Wochenende arbeitet und dementsprechend es über das Wochenende zu längeren Lieferzeiten kommen kann.",
@@ -87,6 +92,11 @@ keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen h
                 ("beschädigt", "beschaedigt", "kaputt"): "Bitte wenden Sie sich dafür an unseren Kundensupport per E-Mail unter support@group20.com. Bitte in der Betreffzeile: Ware beschädigt, Rechnungsnummer. Außerdem Bitte wir Sie gleich ein paar Bilder mitzuschicken, damit wir den Fehler möglichst schnell beheben können.",
                 ("treueprogramm", "treue", "prämie", "praemie", "prämien", "praemien"): "Nein, so etwas haben wir leider nicht."
                 }
+=======
+keywordliste = {("moin", "hallo"): "Moin, wie kann ich helfen?",
+                ("router","monitor"): "Neustart",
+                ("wetter"): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."}
+>>>>>>> 6d60a7202c92b42642acc8592f2f7ec6a4c484f0
 
 #Begrüßung
 print("Willkommen beim Chatbot")
@@ -110,3 +120,4 @@ if gewaehrleistungsanspruch:
     trial = 0
     while trial < 4:
         chatbot_frage()
+        trial + 1
