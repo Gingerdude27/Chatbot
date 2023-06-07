@@ -9,7 +9,7 @@ def ask_question(question):
 
 #Funktion erstellt eine Frage und gibt ein Boolean zurück
 def ask_yes_no(question): 
-	print(question)
+    print(question)
     while True:
         response = input().lower()
         if response in ['y', 'yes', 'ja']:
@@ -103,24 +103,21 @@ keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen h
 print("Willkommen beim Chatbot")
 
 #Abfrage der Rechnungsnummer und Abgleich ob diese vorhanden ist, optional Möglichkeit direkt den Support zu kontaktieren
-print("Um Ihre Identität zu bestimmen, geben Sie bitte Ihre 8 stellige Rechnungsnummer ein")
-rechnungsnummer = ask_question("Sollten Sie keine haben, geben Sie bitte KONTAKT ein")
-if rechnungsnummer == "KONTAKT":
-    kontakt()
-else:
+if ask_yes_no("Haben Sie eine Rechnungsnummer?"):
+    rechnungsnummer = ask_question("Geben Sie bitte Ihre Rechnungsnummer(8 Zeichen) ein")
     if rechnungsnummer in rechnungsliste:
         print("Vielen Dank!")
         rechnungsnummer_vorhanden = True
     else:
-        print("Leider ist die Rechnungsnummer uns nicht bekannt")
+        print("Leider ist uns diese Rechnungsnummer nicht bekannt")
         kontakt()
+else:
+    kontakt()
 
 #Hier wird geprüft ob ein Gewährleistungsanspruch besteht       
 if rechnungsnummer_vorhanden:
     gewaehrleistungsanspruch = pruefe_gewaehrleistungsanspruch(rechnungsnummer)
-else:
-    print("Leider besteht kein Gewährleistungsanspruch")
-
+	
 #Kunde fragt 3x den Chatbot, dann wird er zum Support weitergeleitet
 if gewaehrleistungsanspruch:
     while trial < 4:
@@ -130,3 +127,5 @@ if gewaehrleistungsanspruch:
         print("Anscheinend konnte ich Ihnen nach 3 Versuchen nicht helfen,")
         print("bitte wenden Sie sich an den Kundensupport")
         kontakt()
+elif rechnungsnummer_vorhanden:
+    print("Leider besteht kein Gewährleistungsanspruch")
