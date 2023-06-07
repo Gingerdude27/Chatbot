@@ -63,7 +63,7 @@ def chatbot_frage(): #todo logging
                 if keyword in schlagwoerter:
                     print(keywordliste[tupil])
     else: #todo  logging
-        print("Leider habe ich das nicht verstanden, könnten Sie das bitte wiederholen")        
+        print("Leider habe ich hierzu keine Informationen. Bitte versuchen Sie es erneut.")        
        
 def datenbank_speichern(kategorie, text): #todo 
     print("todo")
