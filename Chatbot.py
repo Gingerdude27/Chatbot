@@ -9,14 +9,15 @@ def ask_question(question):
 
 #Funktion erstellt eine Frage und gibt ein Boolean zurück
 def ask_yes_no(question): 
+	print(question)
     while True:
-        response = input(question).lower()
+        response = input().lower()
         if response in ['y', 'yes', 'ja']:
             return True
         elif response in ['n', 'no', 'nein']:
             return False
         else:
-            print("Invalid response. Please answer with 'y', 'yes', 'ja', 'n', 'no' or 'nein'.")
+            print("Bitte antworten Sie mit 'y', 'yes', 'ja', 'n', 'no' or 'nein'.")
 
 #Funktion gibt Kontaktmöglichkeiten aus
 def kontakt():
