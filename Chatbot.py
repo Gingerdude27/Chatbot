@@ -71,9 +71,21 @@ def datenbank_speichern(kategorie, text):
 
 rechnungsliste = ["22056348","23018349"]
 
-keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich helfen?",
-                ("router","monitor"): "Neustart",
-                ("wetter"): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."
+keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen helfen?",
+                ("wetter",): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab.",
+                ("öffnungszeiten", "oeffnungszeiten"): "Unsere Öffnungszeiten sind 24 Stunden und 7 Tage die Woche. Wir sind ein OnlineShop. Bitte beachten Sie, dass unser Lager nicht am Wochenende arbeitet und dementsprechend es über das Wochenende zu längeren Lieferzeiten kommen kann.",
+                ("vergessen", "zurücksetzen", "zuruecksetzen"): "Gehen Sie auf den Link 'Passwort vergessen'. Darüber können Sie ihr Passwort zurücksetzen. Schauen Sie dazu bitte in Ihren Posteingang.",
+                ("zahlungsmethode",): "Wir akzeptieren bei uns im Onlineshop Visa, PayPal und Vorkasse.",
+                ("abholen",): "Eine Abholung vor Ort ist bei uns leider nicht möglich, da wir ein reines Onlinegeschäft sind.",
+                ("zurückgeben", "zurueckgeben", "umtauschen"): "Ja, das ist unter bestimmten Begebenheiten möglich. Schauen Sie bitte dazu in unsere Allgemeinen Geschäftsbedingungen (AGB) unter den Abschnitt Widerrufsrecht.",
+                ("versand",): "Der Versand dauert 1-3 Werktage. Ab 50€ Bestellwert ist der Versandt kostenlos. Anderfalls fallen 4,90€ Versandkosten an.",
+                ("benutzerkonto",): "Ein Konto können Sie direkt bei der ersten Bestellung anlegen.",
+                ("versandoptionen"): "Wir versenden unsere Ware nach Wunsch per Hermes, DHL und DPD.",
+                ("verfolgung",): "Ja eine Verfolgung des Pakets ist möglich. Einen entsprechenden Link erhalten Sie von dem von Ihrem gewählten Paketzusteller. Es können dabei zusätzliche Kosten anfallen.",
+                ("kundenbewertung", "rezession", "rezesszionen", "kundenbewertungen"): "Ja die gibt es. Scrollen Sie dafür bei dem gewünschten Produkt ein wenig nach unten.",
+                ("kundenservice", "support", "kundensupport"): "Haben Sie es schon mit einem Neustart des Geräts versucht? Ist das Betriebssystem aktuell und sind alle Treiber auf dem aktuellen Stand? Ist dies der Fall, kontaktieren Sie bitte unseren Kundensupport unter folgender Telefonnummer: 040 66969 666. Alternativ sind wir auch per Mail unter folgender E-Mail-Adresse zu erreichen: support@group20.com.",
+                ("beschädigt", "beschaedigt", "kaputt"): "Bitte wenden Sie sich dafür an unseren Kundensupport per E-Mail unter support@group20.com. Bitte in der Betreffzeile: Ware beschädigt, Rechnungsnummer. Außerdem Bitte wir Sie gleich ein paar Bilder mitzuschicken, damit wir den Fehler möglichst schnell beheben können.",
+                ("treueprogramm", "treue", "prämie", "praemie", "prämien", "praemien"): "Nein, so etwas haben wir leider nicht."
                 }
 
 #Begrüßung
