@@ -51,9 +51,16 @@ def chatbot_frage():
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
     schlagwoerter = text_keyword(benutzereingabe, keywordliste)
     print("das sind die gefundenen Schlagwörter", schlagwoerter) #todo nur zu demo zwecken
-    for word in schlagwoerter:
-        if word in keywordliste.keys():
-            print(keywordliste[word]) 
+    for tupil in keywordliste:
+        for keyword in tupil:
+            if keyword in schlagwoerter:
+                print(keywordliste(keyword))
+      
+    
+    #for word in schlagwoerter:
+     #   print(word)
+      #  if word in keywordliste:
+       #     print(keywordliste[word]) 
     #Todo
         
 def datenbank_speichern(kategorie, text):
