@@ -57,7 +57,7 @@ def chatbot_frage():
                 if keyword in schlagwoerter:
                     print(keywordliste[tupil])
     else: #todo  logging
-        print("Leider habe ich das nicht vertsanden, könnten Sie das bitte wiederholen")        
+        print("Leider habe ich das nicht verstanden, könnten Sie das bitte wiederholen")        
         
 def datenbank_speichern(kategorie, text):
     print("todo")
@@ -104,7 +104,7 @@ else:
 if rechnungsnummer_vorhanden:
     gewaehrleistungsanspruch = pruefe_gewaehrleistungsanspruch(rechnungsnummer)
 else:
-    print("Leider besteht kein Gewähleistungsanspruch")
+    print("Leider besteht kein Gewährleistungsanspruch")
 
 if gewaehrleistungsanspruch:
     trial = 0
@@ -112,6 +112,6 @@ if gewaehrleistungsanspruch:
         chatbot_frage()
         trial + 1
     else:
-        print("Anscheinend konnte ich Ihnen nach 3 VErsuchen nicht helfen")
-        print("ich bitte wenden Sie sich an den Kundensupport")
+        print("Anscheinend konnte ich Ihnen nach 3 Versuchen nicht helfen,")
+        print("bitte wenden Sie sich an den Kundensupport")
         kontakt
