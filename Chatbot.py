@@ -2,12 +2,12 @@
 from datetime import datetime
 
 #Eigentlich import from util.py
-def ask_question(question):
+def ask_question(question): #Funktion erstellt eine Frage (Variable) und gibt einen String mit der Antwort zurück
     print(question)
     response = input().lower()
     return response
 
-def ask_yes_no(question):
+def ask_yes_no(question): #Funktion erstellt eine Frage und gibt ein Boolean zurück
     while True:
         response = input(question).lower()
         if response in ['y', 'yes', 'ja']:
@@ -17,11 +17,11 @@ def ask_yes_no(question):
         else:
             print("Invalid response. Please answer with 'y', 'yes', 'ja', 'n', 'no' or 'nein'.")
 
-def kontakt():
+def kontakt(): #todo logging
     print("HIER DIE KONTAKTMÖGLICHKEITEN ANGEBEN")
     #todo
     
-def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
+def pruefe_gewaehrleistungsanspruch(rechnungsnummer): #Funktion bekommt eine Variable und überprüft ob noch ein Anspruch besteht, gibt einen Boolean zurück
     #Jahr und Monat aus Rechnungsnummer herausfinden
     rechnungs_jahr = int(rechnungsnummer[0:2]) + 2000
     rechnungs_monat = int(rechnungsnummer[2:4]) 
@@ -36,18 +36,17 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
     #Überprüfung
     return rechnungs_datum > vor_zwei_jahren
   
-def text_keyword(text, keywordliste):
+def text_keyword(text, keywordliste): #Funktiom bekommt einen String und zerlegt diesen in einzelne Worte, diese werden dann mit der Keywortliste abgeglichen und wenn sie vorhanden sind als liste ausgegeben
     schlagwoerter = []
-    textfragmente = text.replace(",", "").split(" ") #Todo ergänzen FEhler bei mehr (TypeError: split() takes at most 2 arguments (5 given))
+    textfragmente = text.replace(",", "").split(" ") 
     for fragment in keywordliste:
         for keyword in fragment:
             if keyword in textfragmente:
                 if keyword not in schlagwoerter:
                     schlagwoerter.append(keyword)
     return schlagwoerter        
-    #überprüfen-todo
-    
-def chatbot_frage():
+        
+def chatbot_frage(): #todo logging #Funktion Erstellt eine Frage, fasst den Text in Schlagworte zusammen und gibt eine Antwort, welche er aus einer Liste auswählt
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
     schlagwoerter = text_keyword(benutzereingabe, keywordliste)
     print("das sind die gefundenen Schlagwörter", schlagwoerter) #todo nur zu demo zwecken
@@ -59,13 +58,17 @@ def chatbot_frage():
     else: #todo  logging
         print("Leider habe ich das nicht vertsanden, könnten Sie das bitte wiederholen")        
         
-def datenbank_speichern(kategorie, text):
+def datenbank_speichern(kategorie, text): #todo 
     print("todo")
     #todo
     
 #Variable
 
+rechnn = False
+
 rechnungsnummer_vorhanden = False
+
+gewaehrleistungsanspruch = False
 
 rechnungsliste = ["22056348","23018349"]
 
@@ -88,10 +91,11 @@ keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen h
 
 #Begrüßung
 print("Willkommen beim Chatbot")
+
+#Abfrage der Rechnungsnummer und Abgleich ob diese vorhanden ist, optional Möglichkeit direkt den Support zu kontaktieren
 print("Um Ihre Identität zu bestimmen, geben Sie bitte Ihre 8 stellige Rechnungsnummer ein")
-rechnungsnummer = ask_question("Sollten Sie keine haben, geben Sie bitte 1234 ein")
-rechnn = False
-if rechnungsnummer == "1234":
+rechnungsnummer = ask_question("Sollten Sie keine haben, geben Sie bitte KONTAKT ein")
+if rechnungsnummer == "KONTAKT":
     kontakt()
 else:
     if rechnungsnummer in rechnungsliste:
@@ -100,18 +104,20 @@ else:
     else:
         print("Leider ist die Rechnungsnummer uns nicht bekannt")
         kontakt()
-        
+
+#Hier wird geprüft ob ein Gewährleistungsanspruch besteht       
 if rechnungsnummer_vorhanden:
     gewaehrleistungsanspruch = pruefe_gewaehrleistungsanspruch(rechnungsnummer)
 else:
     print("Leider besteht kein Gewähleistungsanspruch")
 
+#Kunden fragt 3 mal den Chatbot, dann wird er zum Support weitergeleitet
 if gewaehrleistungsanspruch:
     trial = 0
     while trial < 4:
         chatbot_frage()
-        trial + 1
-    else:
-        print("Anscheinend konnte ich Ihnen nach 3 VErsuchen nicht helfen")
-        print("ich bitte wenden Sie sich an den Kundensupport")
+        trial += 1
+else:
+        print("Anscheinend konnte ich Ihnen nach 3 Versuchen nicht helfen")
+        print("Bitte wenden Sie sich an den Kundensupport")
         kontakt
