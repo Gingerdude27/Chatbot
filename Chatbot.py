@@ -1,4 +1,5 @@
 #Imports
+import sqlite3
 from datetime import datetime
 
 #Funktion erstellt eine Frage (Variable) und gibt einen String mit der Antwort zurück
@@ -44,7 +45,7 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
  #Funktion bekommt einen String und zerlegt diesen in einzelne Worte, diese werden dann mit der Keywortliste abgeglichen und wenn sie vorhanden sind als Liste ausgegeben 
 def text_keyword(text, keywordliste): 
     schlagwoerter = []
-    textfragmente = text.replace(",", "").replace("?", ".").replace("!", "-").split(" ")
+    textfragmente = text.replace(",", "").replace("?", ".").replace("!", "-").split(" ") if " " in text else [text]
     for fragment in keywordliste:
         for keyword in fragment:
             if keyword in textfragmente:
@@ -53,21 +54,62 @@ def text_keyword(text, keywordliste):
     return schlagwoerter        
 
 #Funktion erstellt eine Frage, fasst den Text in Schlagworte zusammen und gibt eine Antwort, welche er aus einer Liste auswählt
-def chatbot_frage(): #todo logging 
+def chatbot_frage():
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
     schlagwoerter = text_keyword(benutzereingabe, keywordliste)
-    print("[Debug] das sind die gefundenen Schlagwörter", schlagwoerter)
+    print("[Debug] gefundene Schlagwörter", schlagwoerter)
     if len(schlagwoerter) != 0:
         for tupil in keywordliste:
             for keyword in tupil:
                 if keyword in schlagwoerter:
                     print(keywordliste[tupil])
-    else: #todo  logging
+    else:
+        save_unrecognized_input(benutzereingabe)
         print("Leider habe ich hierzu keine Informationen. Bitte versuchen Sie es erneut.")        
+
+def initialize_database():
+    try:
+        # Connect to the database or create a new one if it doesn't exist
+        conn = sqlite3.connect('database.db')
+        cursor = conn.cursor()
+
+        # Check if the table 'unrecognized_inputs' exists
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='unrecognized_inputs'")
+        table_exists = cursor.fetchone()
+
+        if not table_exists:
+            # Create the 'unrecognized_inputs' table if it doesn't exist
+            cursor.execute('''CREATE TABLE unrecognized_inputs
+                              (Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                               UserInput TEXT,
+                               Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP)''')
+
+        print("[Debug] Database initialized")
+        conn.commit()
+    except Exception as e:
+        print("[Debug] An error occurred while initializing the database:", str(e))
+    finally:
+        conn.close()
        
-def datenbank_speichern(kategorie, text): #todo 
-    print("todo")
-    #todo
+
+def save_unrecognized_input(input_text):
+    try:
+        # Connect to the database
+        conn = sqlite3.connect('database.db')
+        cursor = conn.cursor()
+
+        # Insert the unrecognized input into the table
+        cursor.execute("INSERT INTO unrecognized_inputs (UserInput) VALUES (?)", (input_text,))
+
+        # Save the changes and close the connection
+        conn.commit()
+
+        print("[Debug] Unbekannte Anfrage in Datenbank protokolliert")
+    except Exception as e:
+        print("[Debug] An error occurred while saving the unrecognized input:", str(e))
+    finally:
+        conn.close()
+
 
 
 #Variablen
@@ -80,9 +122,9 @@ gewaehrleistungsanspruch = False
 
 trial = 0
 
-rechnungsliste = ["22056348","23018349"]
+rechnungsliste = ["20056348", "22056348","23018349"]
 
-keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen helfen?",
+keywordliste = {("moin", "hallo", "gott", "servus"): "Moin!",
                 ("wetter",): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab. Alternativ können wir noch einen Wetterbericht Ihrer Wahl empfehlen.",
                 ("öffnungszeiten", "oeffnungszeiten"): "Unsere Öffnungszeiten sind 24 Stunden und 7 Tage die Woche. Wir sind ein OnlineShop. Bitte beachten Sie, dass unser Lager nicht am Wochenende arbeitet und es dementsprechend über das Wochenende zu längeren Lieferzeiten kommen kann.",
                 ("vergessen", "zurücksetzen", "zuruecksetzen"): "Gehen Sie auf den Link 'Passwort vergessen' im Browser. Darüber können Sie ihr Passwort zurücksetzen. Schauen Sie anschließend bitte in Ihren Posteingang.",
@@ -98,6 +140,8 @@ keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen h
                 ("beschädigt", "beschaedigt", "kaputt"): "Haben Sie es schon mit einem Neustart des Geräts versucht? Ist das Betriebssystem aktuell und sind alle Treiber auf dem aktuellen Stand? Ist dies der Fall, wenden Sie sich bitte dafür an unseren Kundensupport per E-Mail unter support@group20.com. Bitte in der Betreffzeile: Ware beschädigt, Rechnungsnummer. Außerdem Bitte wir Sie gleich ein paar Bilder mitzuschicken, damit wir den Fehler möglichst schnell beheben können.",
                 ("treueprogramm", "treue", "prämie", "praemie", "prämien", "praemien"): "Nein, so etwas haben wir leider nicht."
                 }
+
+initialize_database()
 
 #Begrüßung
 print("Willkommen beim Chatbot")
@@ -127,4 +171,4 @@ if gewaehrleistungsanspruch:
         print("Es tut mir leid dass ich Ihnen mein auch weiterhin nicht helfen kann.")
         kontakt()
 elif rechnungsnummer_vorhanden:
-    print("Leider besteht kein Gewährleistungsanspruch")
+    print("Leider besteht kein Gewährleistungsanspruch mehr da ihr Kauf bereits mehr als zwei Jahre zurückliegt.")
