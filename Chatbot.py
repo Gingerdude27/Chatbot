@@ -54,7 +54,7 @@ def chatbot_frage():
     for tupil in keywordliste:
         for keyword in tupil:
             if keyword in schlagwoerter:
-                print(keywordliste(keyword))
+                print(keywordliste[tupil])
       
     
     #for word in schlagwoerter:
