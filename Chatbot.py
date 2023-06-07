@@ -81,13 +81,13 @@ trial = 0
 rechnungsliste = ["22056348","23018349"]
 
 keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen helfen?",
-                ("wetter",): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab.",
-                ("öffnungszeiten", "oeffnungszeiten"): "Unsere Öffnungszeiten sind 24 Stunden und 7 Tage die Woche. Wir sind ein OnlineShop. Bitte beachten Sie, dass unser Lager nicht am Wochenende arbeitet und dementsprechend es über das Wochenende zu längeren Lieferzeiten kommen kann.",
-                ("vergessen", "zurücksetzen", "zuruecksetzen"): "Gehen Sie auf den Link 'Passwort vergessen'. Darüber können Sie ihr Passwort zurücksetzen. Schauen Sie dazu bitte in Ihren Posteingang.",
+                ("wetter",): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab. Alternativ können wir noch einen Wetterbericht Ihrer Wahl empfehlen.",
+                ("öffnungszeiten", "oeffnungszeiten"): "Unsere Öffnungszeiten sind 24 Stunden und 7 Tage die Woche. Wir sind ein OnlineShop. Bitte beachten Sie, dass unser Lager nicht am Wochenende arbeitet und es dementsprechend über das Wochenende zu längeren Lieferzeiten kommen kann.",
+                ("vergessen", "zurücksetzen", "zuruecksetzen"): "Gehen Sie auf den Link 'Passwort vergessen' im Browser. Darüber können Sie ihr Passwort zurücksetzen. Schauen Sie anschließend bitte in Ihren Posteingang.",
                 ("zahlungsmethode",): "Wir akzeptieren bei uns im Onlineshop Visa, PayPal und Vorkasse.",
                 ("abholen",): "Eine Abholung vor Ort ist bei uns leider nicht möglich, da wir ein reines Onlinegeschäft sind.",
                 ("zurückgeben", "zurueckgeben", "umtauschen"): "Ja, das ist unter bestimmten Begebenheiten möglich. Schauen Sie bitte dazu in unsere Allgemeinen Geschäftsbedingungen (AGB) unter den Abschnitt Widerrufsrecht.",
-                ("versand",): "Der Versand dauert 1-3 Werktage. Ab 50€ Bestellwert ist der Versandt kostenlos. Anderfalls fallen 4,90€ Versandkosten an.",
+                ("versand",): "Der Versand dauert 1-3 Werktage. Ab 50€ Bestellwert ist der Versandt kostenlos. Anderfalls entstehen Versandkosten in Höhe von 4,90€.",
                 ("benutzerkonto",): "Ein Konto können Sie direkt bei der ersten Bestellung anlegen.",
                 ("versandoptionen"): "Wir versenden unsere Ware nach Wunsch per Hermes, DHL und DPD.",
                 ("verfolgung",): "Ja eine Verfolgung des Pakets ist möglich. Einen entsprechenden Link erhalten Sie von dem von Ihrem gewählten Paketzusteller. Es können dabei zusätzliche Kosten anfallen.",
@@ -119,7 +119,7 @@ if rechnungsnummer_vorhanden:
 else:
     print("Leider besteht kein Gewährleistungsanspruch")
 
-#Kunden fragt 3 mal den Chatbot, dann wird er zum Support weitergeleitet
+#Kunde fragt 3x den Chatbot, dann wird er zum Support weitergeleitet
 if gewaehrleistungsanspruch:
     while trial < 4:
         chatbot_frage()
