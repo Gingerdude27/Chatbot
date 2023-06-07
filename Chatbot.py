@@ -64,8 +64,10 @@ def datenbank_speichern(kategorie, text):
 
 rechnungsliste = ["22056348","23018349"]
 
-keywordliste = {("moin", "hallo"): "Moin, wie kann ich helfen?",
-                ("router","monitor"): "Neustart"}
+keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich helfen?",
+                ("router","monitor"): "Neustart",
+                ("wetter"): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."
+                }
 
 #Begrüßung
 print("Willkommen beim Chatbot")
