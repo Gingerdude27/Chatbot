@@ -19,9 +19,10 @@ def ask_yes_no(question):
         else:
             print("Invalid response. Please answer with 'y', 'yes', 'ja', 'n', 'no' or 'nein'.")
 
-def kontakt(): #todo logging
-    print("HIER DIE KONTAKTMÖGLICHKEITEN ANGEBEN")
-    #todo
+def kontakt():
+    print("Bitte kontaktieren Sie uns unter folgender E-Mail oder Telefonnummer:")
+    print("E-Mail: support@sehrwichtigefirma.de")
+    print("Telefon: 040 123456789")
 
 #Funktion bekommt eine Variable und überprüft ob noch ein Anspruch besteht; gibt einen Boolean zurück
 def pruefe_gewaehrleistungsanspruch(rechnungsnummer): 
@@ -127,4 +128,4 @@ if gewaehrleistungsanspruch:
     else:
         print("Anscheinend konnte ich Ihnen nach 3 Versuchen nicht helfen,")
         print("bitte wenden Sie sich an den Kundensupport")
-        kontakt
+        kontakt()
