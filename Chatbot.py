@@ -51,11 +51,13 @@ def chatbot_frage():
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
     schlagwoerter = text_keyword(benutzereingabe, keywordliste)
     print("das sind die gefundenen Schlagwörter", schlagwoerter) #todo nur zu demo zwecken
-    for tupil in keywordliste:
-        for keyword in tupil:
-            if keyword in schlagwoerter:
-                print(keywordliste[tupil])
-      
+    if len(schlagwoerter) != 0:
+        for tupil in keywordliste:
+            for keyword in tupil:
+                if keyword in schlagwoerter:
+                    print(keywordliste[tupil])
+    else: #todo  logging
+        print("Leider konnte ich das  ")        
     
     #for word in schlagwoerter:
      #   print(word)
@@ -69,12 +71,13 @@ def datenbank_speichern(kategorie, text):
     
 #Variable
 
+rechnungsnummer_vorhanden = False
+
 rechnungsliste = ["22056348","23018349"]
 
-keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich helfen?",
+keywordliste = {("moin", "hallo"): "Moin, wie kann ich helfen?",
                 ("router","monitor"): "Neustart",
-                ("wetter"): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."
-                }
+                ("wetter"): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."}
 
 #Begrüßung
 print("Willkommen beim Chatbot")
@@ -98,3 +101,4 @@ if gewaehrleistungsanspruch:
     trial = 0
     while trial < 4:
         chatbot_frage()
+        trial + 1
