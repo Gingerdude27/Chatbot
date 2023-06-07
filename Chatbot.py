@@ -1,6 +1,5 @@
 #Imports
 from datetime import datetime
-#Eigentlich import from util.py
 
 #Funktion erstellt eine Frage (Variable) und gibt einen String mit der Antwort zurück
 def ask_question(question): 
@@ -19,6 +18,7 @@ def ask_yes_no(question):
         else:
             print("Invalid response. Please answer with 'y', 'yes', 'ja', 'n', 'no' or 'nein'.")
 
+#Funktion gibt Kontaktmöglichkeiten aus
 def kontakt():
     print("Bitte kontaktieren Sie uns unter folgender E-Mail oder Telefonnummer:")
     print("E-Mail: support@sehrwichtigefirma.de")
