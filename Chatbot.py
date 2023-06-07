@@ -1,6 +1,5 @@
 #Imports
 from datetime import datetime
-import random
 
 #Eigentlich import from util.py
 def ask_question(question):
@@ -43,7 +42,8 @@ def text_keyword(text, keywordliste):
     for fragment in keywordliste:
         for keyword in fragment:
             if keyword in textfragmente:
-                schlagwoerter.append(keyword)
+                if keyword not in schlagwoerter:
+                    schlagwoerter.append(keyword)
     return schlagwoerter        
     #überprüfen-todo
     
@@ -57,13 +57,7 @@ def chatbot_frage():
                 if keyword in schlagwoerter:
                     print(keywordliste[tupil])
     else: #todo  logging
-        print("Leider konnte ich das  ")        
-    
-    #for word in schlagwoerter:
-     #   print(word)
-      #  if word in keywordliste:
-       #     print(keywordliste[word]) 
-    #Todo
+        print("Leider habe ich das nicht vertsanden, könnten Sie das bitte wiederholen")        
         
 def datenbank_speichern(kategorie, text):
     print("todo")
@@ -77,7 +71,7 @@ rechnungsliste = ["22056348","23018349"]
 
 keywordliste = {("moin", "hallo"): "Moin, wie kann ich helfen?",
                 ("router","monitor"): "Neustart",
-                ("wetter"): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."}
+                ("wetter",): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab."}
 
 #Begrüßung
 print("Willkommen beim Chatbot")
@@ -96,9 +90,15 @@ else:
         
 if rechnungsnummer_vorhanden:
     gewaehrleistungsanspruch = pruefe_gewaehrleistungsanspruch(rechnungsnummer)
-
+else:
+    print("Leider besteht kein Gewähleistungsanspruch")
+    
 if gewaehrleistungsanspruch:
     trial = 0
     while trial < 4:
         chatbot_frage()
         trial + 1
+    else:
+        print("Anscheinend konnte ich Ihnen nach 3 VErsuchen nicht helfen")
+        print("ich bitte wenden Sie sich an den Kundensupport")
+        kontakt
