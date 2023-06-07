@@ -56,7 +56,7 @@ def chatbot_frage(): #todo logging #Funktion Erstellt eine Frage, fasst den Text
                 if keyword in schlagwoerter:
                     print(keywordliste[tupil])
     else: #todo  logging
-        print("Leider habe ich das nicht vertsanden, könnten Sie das bitte wiederholen")        
+        print("Leider habe ich das nicht verstanden, könnten Sie das bitte wiederholen")        
         
 def datenbank_speichern(kategorie, text): #todo 
     print("todo")
@@ -83,7 +83,7 @@ keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen h
                 ("benutzerkonto",): "Ein Konto können Sie direkt bei der ersten Bestellung anlegen.",
                 ("versandoptionen"): "Wir versenden unsere Ware nach Wunsch per Hermes, DHL und DPD.",
                 ("verfolgung",): "Ja eine Verfolgung des Pakets ist möglich. Einen entsprechenden Link erhalten Sie von dem von Ihrem gewählten Paketzusteller. Es können dabei zusätzliche Kosten anfallen.",
-                ("kundenbewertung", "rezession", "rezesszionen", "kundenbewertungen"): "Ja die gibt es. Scrollen Sie dafür bei dem gewünschten Produkt ein wenig nach unten.",
+                ("kundenbewertung", "rezession", "rezessionen", "kundenbewertungen"): "Ja die gibt es. Scrollen Sie dafür bei dem gewünschten Produkt ein wenig nach unten.",
                 ("kundenservice", "support", "kundensupport"): "Haben Sie es schon mit einem Neustart des Geräts versucht? Ist das Betriebssystem aktuell und sind alle Treiber auf dem aktuellen Stand? Ist dies der Fall, kontaktieren Sie bitte unseren Kundensupport unter folgender Telefonnummer: 040 66969 666. Alternativ sind wir auch per Mail unter folgender E-Mail-Adresse zu erreichen: support@group20.com.",
                 ("beschädigt", "beschaedigt", "kaputt"): "Bitte wenden Sie sich dafür an unseren Kundensupport per E-Mail unter support@group20.com. Bitte in der Betreffzeile: Ware beschädigt, Rechnungsnummer. Außerdem Bitte wir Sie gleich ein paar Bilder mitzuschicken, damit wir den Fehler möglichst schnell beheben können.",
                 ("treueprogramm", "treue", "prämie", "praemie", "prämien", "praemien"): "Nein, so etwas haben wir leider nicht."
@@ -109,15 +109,15 @@ else:
 if rechnungsnummer_vorhanden:
     gewaehrleistungsanspruch = pruefe_gewaehrleistungsanspruch(rechnungsnummer)
 else:
-    print("Leider besteht kein Gewähleistungsanspruch")
+    print("Leider besteht kein Gewährleistungsanspruch")
 
 #Kunden fragt 3 mal den Chatbot, dann wird er zum Support weitergeleitet
 if gewaehrleistungsanspruch:
     trial = 0
     while trial < 4:
         chatbot_frage()
-        trial += 1
-else:
-        print("Anscheinend konnte ich Ihnen nach 3 Versuchen nicht helfen")
-        print("Bitte wenden Sie sich an den Kundensupport")
+        trial + 1
+    else:
+        print("Anscheinend konnte ich Ihnen nach 3 Versuchen nicht helfen,")
+        print("bitte wenden Sie sich an den Kundensupport")
         kontakt
