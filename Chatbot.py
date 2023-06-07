@@ -44,7 +44,7 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
  #Funktion bekommt einen String und zerlegt diesen in einzelne Worte, diese werden dann mit der Keywortliste abgeglichen und wenn sie vorhanden sind als Liste ausgegeben 
 def text_keyword(text, keywordliste): 
     schlagwoerter = []
-    textfragmente = text.replace(",", "", "?", ".", "!", "-").split(" ") 
+    textfragmente = text.replace(",", "", "?", ".", "!", "-").split(" ") if " " in text else [text]
     for fragment in keywordliste:
         for keyword in fragment:
             if keyword in textfragmente:
@@ -56,7 +56,7 @@ def text_keyword(text, keywordliste):
 def chatbot_frage(): #todo logging 
     benutzereingabe = ask_question("Wie kann ich Ihnen helfen?")
     schlagwoerter = text_keyword(benutzereingabe, keywordliste)
-    print("das sind die gefundenen Schlagwörter", schlagwoerter) #todo nur zu demo zwecken
+    print("[Debug] das sind die gefundenen Schlagwörter", schlagwoerter)
     if len(schlagwoerter) != 0:
         for tupil in keywordliste:
             for keyword in tupil:
