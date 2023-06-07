@@ -86,7 +86,7 @@ keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen h
                 ("benutzerkonto",): "Ein Konto können Sie direkt bei der ersten Bestellung anlegen.",
                 ("versandoptionen"): "Wir versenden unsere Ware nach Wunsch per Hermes, DHL und DPD.",
                 ("verfolgung",): "Ja eine Verfolgung des Pakets ist möglich. Einen entsprechenden Link erhalten Sie von dem von Ihrem gewählten Paketzusteller. Es können dabei zusätzliche Kosten anfallen.",
-                ("kundenbewertung", "rezession", "rezesszionen", "kundenbewertungen"): "Ja die gibt es. Scrollen Sie dafür bei dem gewünschten Produkt ein wenig nach unten.",
+                ("kundenbewertung", "rezession", "rezessionen", "kundenbewertungen"): "Ja die gibt es. Scrollen Sie dafür bei dem gewünschten Produkt ein wenig nach unten.",
                 ("kundenservice", "support", "kundensupport"): "Haben Sie es schon mit einem Neustart des Geräts versucht? Ist das Betriebssystem aktuell und sind alle Treiber auf dem aktuellen Stand? Ist dies der Fall, kontaktieren Sie bitte unseren Kundensupport unter folgender Telefonnummer: 040 66969 666. Alternativ sind wir auch per Mail unter folgender E-Mail-Adresse zu erreichen: support@group20.com.",
                 ("beschädigt", "beschaedigt", "kaputt"): "Bitte wenden Sie sich dafür an unseren Kundensupport per E-Mail unter support@group20.com. Bitte in der Betreffzeile: Ware beschädigt, Rechnungsnummer. Außerdem Bitte wir Sie gleich ein paar Bilder mitzuschicken, damit wir den Fehler möglichst schnell beheben können.",
                 ("treueprogramm", "treue", "prämie", "praemie", "prämien", "praemien"): "Nein, so etwas haben wir leider nicht."
