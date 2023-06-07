@@ -76,6 +76,8 @@ rechnungsnummer_vorhanden = False
 
 gewaehrleistungsanspruch = False
 
+trial = 0
+
 rechnungsliste = ["22056348","23018349"]
 
 keywordliste = {("moin", "hallo", "gott", "servus"): "Moin, wie kann ich Ihnen helfen?",
@@ -119,10 +121,9 @@ else:
 
 #Kunden fragt 3 mal den Chatbot, dann wird er zum Support weitergeleitet
 if gewaehrleistungsanspruch:
-    trial = 0
     while trial < 4:
         chatbot_frage()
-        trial + 1
+        trial += 1
     else:
         print("Anscheinend konnte ich Ihnen nach 3 Versuchen nicht helfen,")
         print("bitte wenden Sie sich an den Kundensupport")
