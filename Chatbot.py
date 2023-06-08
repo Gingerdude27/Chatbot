@@ -46,7 +46,7 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
 #Funktion bekommt einen String und zerlegt diesen in einzelne Worte, diese werden dann mit der Keywortliste abgeglichen und wenn sie vorhanden sind als Liste ausgegeben
 def text_keyword(text, keywordliste): 
     schlagwoerter = []
-    textfragmente = text.replace(",", "").replace("?", ".").replace("!", "-").split(" ")
+    textfragmente = text.replace(",", "").replace("?", "").replace("!", "").replace("-", "").replace(".", "").split(" ")
     for fragment in keywordliste:
         for keyword in fragment:
             if keyword in textfragmente:
