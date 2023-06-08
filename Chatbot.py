@@ -41,10 +41,9 @@ def pruefe_gewaehrleistungsanspruch(rechnungsnummer):
 
     #Überprüfung
     return rechnungs_datum > vor_zwei_jahren
+ 
 
- #Funktion bekommt einen String und zerlegt diesen in einzelne Worte, diese werden dann mit der Keywortliste abgeglichen und wenn sie vorhanden sind als Liste ausgegeben 
-
-#Funktion bekommt einen String und gleicht den mit einem Dictonary ab und gibt die übereinstimmungen als Liste aus
+#Funktion bekommt einen String und zerlegt diesen in einzelne Worte, diese werden dann mit der Keywortliste abgeglichen und wenn sie vorhanden sind als Liste ausgegeben
 def text_keyword(text, keywordliste): 
     schlagwoerter = []
     textfragmente = text.replace(",", "").replace("?", ".").replace("!", "-").split(" ")
@@ -69,7 +68,7 @@ def chatbot_frage():
         save_unrecognized_input(benutzereingabe)
         print("Leider habe ich hierzu keine Informationen. Bitte versuchen Sie es erneut.")        
 
-#Initaliesiert eine SQLite Datenbank
+#Initalisiert eine SQLite Datenbank
 def initialize_database():
     try:
         # Connect to the database or create a new one if it doesn't exist
@@ -127,7 +126,7 @@ trial = 0
 
 rechnungsliste = ["20056348", "22056348","23018349"]
 
-#In diesem Dictonary werden alle Schlagwörter und antworten gespeichert
+#In diesem Dictonary werden alle Schlagwörter und Antworten gespeichert
 keywordliste = {("moin", "hallo", "gott", "servus"): "Moin!",
                 ("wetter",): "Das kann ich Ihnen nicht beantworten. Schauen Sie doch aus dem Fenster oder lesen Sie das Thermometer ab. Alternativ können wir noch einen Wetterbericht Ihrer Wahl empfehlen.",
                 ("öffnungszeiten", "oeffnungszeiten"): "Unsere Öffnungszeiten sind 24 Stunden und 7 Tage die Woche. Wir sind ein OnlineShop. Bitte beachten Sie, dass unser Lager nicht am Wochenende arbeitet und es dementsprechend über das Wochenende zu längeren Lieferzeiten kommen kann.",
